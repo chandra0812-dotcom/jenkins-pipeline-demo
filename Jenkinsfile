@@ -11,6 +11,8 @@ node {
     stage('Stage 3 - Read File') {
         sh 'cat app.txt'
     }
-
+stage('Stage 4 - List Files') {
+    steps {
+        sh 'ls -l'
     echo "Pipeline Finished"
 }
