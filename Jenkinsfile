@@ -16,5 +16,9 @@ node {
         sh 'ls -l'
     }
 
+    stage('Print Something') {
+      echo "Hello Student"
+    }
+
     echo "Pipeline Finished"
 }
