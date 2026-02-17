@@ -1,24 +1,31 @@
-node {
+pipeline {
+    agent any
 
-    stage('Stage 1 - Print Message') {
-        echo "This is Scripted Pipeline"
+    stages {
+
+        stage('Stage 1 - Print Message') {
+            steps {
+                echo "This is Declarative Pipeline"
+            }
+        }
+
+        stage('Stage 2 - Show Date') {
+            steps {
+                sh 'date'
+            }
+        }
+
+        stage('Stage 3 - Read File') {
+            steps {
+                sh 'cat app.txt'
+            }
+        }
     }
 
-    stage('Stage 2 - Show Date') {
-        sh 'date'
+    post {
+        always {
+            echo "Pipeline Finished"
+        }
     }
-
-    stage('Stage 3 - Read File') {
-        sh 'cat app.txt'
-    }
-
-    stage('Stage 4 - List Files') {
-        sh 'ls -l'
-    }
-
-    stage('Print Something') {
-      echo "Hello Student"
-    }
-
-    echo "Pipeline Finished"
 }
+
